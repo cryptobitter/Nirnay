@@ -1,0 +1,44 @@
+# Web framework
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+
+# Environment / settings
+python-dotenv==1.0.1
+pydantic==2.7.4
+pydantic-settings==2.3.4
+
+# Database
+sqlalchemy==2.0.31
+psycopg2-binary==2.9.9
+supabase==2.5.1
+
+# Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-multipart==0.0.9
+
+# PDF handling / document ingestion
+pypdf==4.2.0
+
+# RAG framework
+llama-index==0.10.55
+llama-index-vector-stores-chroma==0.1.10
+
+# Vector store
+chromadb==0.5.3
+
+# Embeddings (pick ONE path — see notes below)
+openai==1.35.13
+# sentence-transformers==3.0.1        # uncomment if using free local embeddings instead
+
+# LLM
+anthropic==0.30.1
+
+# Hashing — no install needed, hashlib is built into Python
+
+# Blockchain
+web3==6.20.1
+
+# Testing (optional)
+pytest==8.2.2
+httpx==0.27.0
