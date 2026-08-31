@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verify Decision Record - Nirnay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../../assets/css/animations.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#000a23",
+                        "primary-container": "#12213f",
+                        "secondary": "#1c52ce",
+                        "background": "#f7f9fe",
+                        "surface": "#f7f9fe",
+                        "on-surface": "#181c20",
+                        "on-surface-variant": "#45464e",
+                        "outline-variant": "#c5c6ce"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-shadow { box-shadow: 0px 4px 20px rgba(18, 33, 63, 0.08); }
+        .bg-page-accent { background-color: #f4f6fb; }
+        .text-blue-accent { color: #2a5bd7; }
+        .bg-blue-accent { background-color: #2a5bd7; }
+        .text-navy-primary { color: #12213f; }
+    </style>
+</head>
+<body class="bg-page-accent text-on-surface font-body-lg min-h-screen flex flex-col antialiased relative">
+<div id="scroll-progress-bar"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- TopAppBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant w-full sticky top-0 z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-7xl mx-auto">
+<a href="landing.html" class="flex items-center gap-sm text-primary font-headline-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+<span>Nirnay</span>
+</a>
+<div class="hidden lg:flex gap-md items-center">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="landing.html">Overview</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="ask.html">Ask AI</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="upload.html">Upload Policy</a>
+<a class="text-secondary font-semibold font-label-md px-2 py-1 rounded" href="verify.html">Verify Hash</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="audit-log.html">Audit Log</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="pending-verification.html">Pending</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="history.html">History</a>
+</div>
+<div>
+<a class="font-title-lg text-title-lg text-primary hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="login.html">Staff Login</a>
+</div>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-start py-xl px-margin-mobile md:px-margin-desktop w-full max-w-7xl mx-auto space-y-gutter">
+<!-- Verification Input Card -->
+<div class="bg-surface-container-lowest rounded-xl custom-shadow border border-outline-variant w-full max-w-3xl p-lg md:p-xl reveal-scale">
+<div class="text-center mb-lg">
+<h1 class="font-headline-lg text-navy-primary mb-sm">Verify a Decision Record</h1>
+<p class="font-body-lg text-on-surface-variant">Enter the Record ID or cryptographic hash to verify its authenticity and blockchain anchoring.</p>
+</div>
+<form class="flex flex-col md:flex-row gap-sm items-start md:items-end">
+<div class="flex-grow w-full">
+<label class="font-label-md text-on-surface-variant block mb-xs" for="decision-hash-input">Record ID or Hash</label>
+<input class="w-full h-12 px-md border border-outline-variant rounded font-body-lg text-on-surface focus:outline-none focus:border-blue-accent focus:ring-1 focus:ring-blue-accent transition-colors bg-surface-container-lowest" id="decision-hash-input" placeholder="Enter Record ID or Hash (e.g. 0x8f4c2e...)" type="text" value="0x8f4c2e91b5a7438992c103e56f4a8b79d20c3b9e"/>
+</div>
+<button id="verify-hash-btn" class="h-12 px-xl bg-blue-accent text-white font-title-lg rounded hover:opacity-90 transition-opacity w-full md:w-auto shrink-0 flex items-center justify-center gap-xs" type="button">
+<span class="material-symbols-outlined">search</span>
+                    Verify Hash
+                </button>
+</form>
+</div>
+
+<!-- Dynamic result card -->
+<div id="verification-result" class="hidden w-full max-w-3xl p-md bg-emerald-500/5 border border-emerald-500/30 rounded-xl">
+<div class="flex items-center gap-sm text-emerald-700 font-semibold mb-xs">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Hash Authenticated & Anchored on Public Ledger</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md text-[13px] text-on-surface-variant pt-2 border-t border-emerald-500/20">
+<div><strong class="text-primary">Policy Document:</strong> Academic Policy v4.2</div>
+<div><strong class="text-primary">Auditor Signoff:</strong> Compliance Node #14</div>
+<div><strong class="text-primary">Status:</strong> 100% Immutable</div>
+</div>
+</div>
+</main>
+
+<footer class="bg-surface-container border-t border-outline-variant w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-lg w-full max-w-7xl mx-auto gap-md">
+<div class="font-label-md uppercase tracking-wider text-on-surface-variant text-center md:text-left">
+                © 2026 Nirnay. Precision and institutional trust in decision auditing.
+            </div>
+<nav class="flex gap-md flex-wrap justify-center">
+<a class="font-body-md text-on-surface-variant hover:underline hover:text-primary transition-all duration-200" href="landing.html">Home</a>
+<a class="font-body-md text-on-surface-variant hover:underline hover:text-primary transition-all duration-200" href="ask.html">Ask AI</a>
+</nav>
+</div>
+</footer>
+<script src="../../assets/js/animations.js"></script>
+</body></html>

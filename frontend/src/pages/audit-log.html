@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audit Log - Nirnay Decision Audit AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-high": "#e6e8ed",
+                "on-surface": "#181c20",
+                "on-tertiary": "#ffffff",
+                "surface-container": "#eceef3",
+                "surface-variant": "#e0e2e7",
+                "secondary-fixed-dim": "#b5c4ff",
+                "tertiary-container": "#341c00",
+                "on-error-container": "#93000a",
+                "surface-dim": "#d8dadf",
+                "surface-tint": "#505e7f",
+                "background": "#f7f9fe",
+                "tertiary-fixed": "#ffddba",
+                "surface-container-low": "#f1f4f9",
+                "outline-variant": "#c5c6ce",
+                "on-surface-variant": "#45464e",
+                "tertiary": "#140800",
+                "primary-fixed-dim": "#b8c6ed",
+                "primary-container": "#12213f",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#003cac",
+                "on-background": "#181c20",
+                "primary-fixed": "#d9e2ff",
+                "tertiary-fixed-dim": "#ffb866",
+                "on-tertiary-fixed-variant": "#673d00",
+                "on-secondary-container": "#fefbff",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#c1790a",
+                "surface-bright": "#f7f9fe",
+                "outline": "#75777e",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "primary": "#000a23",
+                "on-primary-fixed": "#0b1b38",
+                "secondary-fixed": "#dbe1ff",
+                "on-primary-fixed-variant": "#384666",
+                "secondary-container": "#3f6ce8",
+                "secondary": "#1c52ce",
+                "on-primary-container": "#7b89ac",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eff1f6",
+                "on-secondary-fixed": "#00164d",
+                "surface": "#f7f9fe",
+                "surface-container-highest": "#e0e2e7",
+                "inverse-primary": "#b8c6ed",
+                "on-tertiary-fixed": "#2b1700",
+                "inverse-surface": "#2d3135"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "xs": "4px",
+                "base": "4px",
+                "lg": "24px",
+                "margin-desktop": "48px",
+                "margin-mobile": "16px",
+                "md": "16px",
+                "sm": "8px",
+                "xl": "40px"
+        },
+        "fontFamily": {
+                "body-md": ["Inter"],
+                "display-lg": ["Public Sans"],
+                "headline-lg": ["Public Sans"],
+                "label-md": ["Inter"]
+        }
+      }
+    }
+  }
+</script>
+<link href="../../assets/css/animations.css" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-full font-body-lg flex overflow-hidden relative">
+<canvas id="bg-canvas"></canvas>
+
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-md bg-primary text-secondary-fixed w-64 border-r border-outline-variant z-50">
+<a href="landing.html" class="flex items-center gap-md mb-xl hover:opacity-90 transition-opacity">
+<div class="w-10 h-10 rounded bg-surface flex items-center justify-center text-primary font-bold overflow-hidden shrink-0">
+<span class="material-symbols-outlined fill text-[24px]">account_balance</span>
+</div>
+<div>
+<h1 class="font-title-lg text-title-lg text-on-primary m-0">Nirnay</h1>
+<p class="font-label-md text-label-md text-on-primary-container m-0">Decision Audit AI</p>
+</div>
+</a>
+<a href="upload.html" class="bg-secondary text-on-secondary rounded-lg py-sm px-md flex items-center justify-center gap-sm font-label-md text-label-md mb-xl hover:opacity-90 transition-opacity w-full shadow-[0px_4px_20px_rgba(18,33,63,0.08)]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Audit
+        </a>
+<div class="flex-1 flex flex-col gap-sm overflow-y-auto">
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors font-body-md text-body-md group" href="landing.html">
+<span class="material-symbols-outlined text-[20px]">home</span>
+                Overview
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors font-body-md text-body-md group" href="upload.html">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+                Upload Documents
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors font-body-md text-body-md group" href="ask.html">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+                Ask a Question
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors font-body-md text-body-md group" href="verify.html">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+                Verify Hash
+            </a>
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm font-body-md text-body-md transition-colors" href="audit-log.html">
+<span class="material-symbols-outlined fill text-[20px]">history</span>
+                Audit Log
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors font-body-md text-body-md group" href="pending-verification.html">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+                Pending
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors font-body-md text-body-md group" href="history.html">
+<span class="material-symbols-outlined text-[20px]">manage_history</span>
+                Your History
+            </a>
+</div>
+</nav>
+
+<!-- Main Content Area Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-full bg-background overflow-hidden relative">
+<header class="flex justify-between items-center w-full px-lg py-md h-16 bg-surface border-b border-outline-variant sticky top-0 z-40">
+<div class="font-headline-md text-headline-md text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined fill text-[24px] text-primary">verified</span>
+                Institutional Audit Ledger
+            </div>
+</header>
+<main class="flex-1 p-gutter overflow-y-auto space-y-lg">
+<div class="max-w-7xl mx-auto space-y-md">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-lg text-primary">Decision Audit Records</h3>
+<span class="text-on-surface-variant font-code-sm bg-surface px-md py-xs rounded border border-outline-variant">Total Records: 1,482</span>
+</div>
+
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-primary text-white border-b border-outline-variant">
+<th class="py-md px-lg font-label-md">Record ID</th>
+<th class="py-md px-lg font-label-md">Query Subject</th>
+<th class="py-md px-lg font-label-md">Cited Source</th>
+<th class="py-md px-lg font-label-md">Verification Hash</th>
+<th class="py-md px-lg font-label-md">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-lg font-code-sm font-semibold text-primary">NRN-94021</td>
+<td class="py-md px-lg text-body-md text-on-surface font-medium">Research Grant Equipment Waiver</td>
+<td class="py-md px-lg text-body-md text-on-surface-variant">Policy 4.2 (p. 14)</td>
+<td class="py-md px-lg font-code-sm text-secondary font-mono">0x8f4c2e91b5a74389...</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/10 text-emerald-700 border border-emerald-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mr-1.5"></span> Verified
+</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-lg font-code-sm font-semibold text-primary">NRN-94020</td>
+<td class="py-md px-lg text-body-md text-on-surface font-medium">Emergency Expenditure Signoff</td>
+<td class="py-md px-lg text-body-md text-on-surface-variant">Expense Guidelines.pdf</td>
+<td class="py-md px-lg font-code-sm text-secondary font-mono">0x3b9e1024a56c7890...</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/10 text-amber-700 border border-amber-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600 mr-1.5"></span> Flagged Review
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+<script src="../../assets/js/animations.js"></script>
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nirnay - Ask a Question</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-high": "#e6e8ed",
+                "on-surface": "#181c20",
+                "on-tertiary": "#ffffff",
+                "surface-container": "#eceef3",
+                "surface-variant": "#e0e2e7",
+                "secondary-fixed-dim": "#b5c4ff",
+                "tertiary-container": "#341c00",
+                "on-error-container": "#93000a",
+                "surface-dim": "#d8dadf",
+                "surface-tint": "#505e7f",
+                "background": "#f7f9fe",
+                "tertiary-fixed": "#ffddba",
+                "surface-container-low": "#f1f4f9",
+                "outline-variant": "#c5c6ce",
+                "on-surface-variant": "#45464e",
+                "tertiary": "#140800",
+                "primary-fixed-dim": "#b8c6ed",
+                "primary-container": "#12213f",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#003cac",
+                "on-background": "#181c20",
+                "primary-fixed": "#d9e2ff",
+                "tertiary-fixed-dim": "#ffb866",
+                "on-tertiary-fixed-variant": "#673d00",
+                "on-secondary-container": "#fefbff",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#c1790a",
+                "surface-bright": "#f7f9fe",
+                "outline": "#75777e",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "primary": "#000a23",
+                "on-primary-fixed": "#0b1b38",
+                "secondary-fixed": "#dbe1ff",
+                "on-primary-fixed-variant": "#384666",
+                "secondary-container": "#3f6ce8",
+                "secondary": "#1c52ce",
+                "on-primary-container": "#7b89ac",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eff1f6",
+                "on-secondary-fixed": "#00164d",
+                "surface": "#f7f9fe",
+                "surface-container-highest": "#e0e2e7",
+                "inverse-primary": "#b8c6ed",
+                "on-tertiary-fixed": "#2b1700",
+                "inverse-surface": "#2d3135",
+                "action-blue": "#2A5BD7",
+                "action-blue-hover": "#1C3C91"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "xs": "4px",
+                "base": "4px",
+                "lg": "24px",
+                "margin-desktop": "48px",
+                "margin-mobile": "16px",
+                "md": "16px",
+                "sm": "8px",
+                "xl": "40px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Public Sans"
+                ],
+                "headline-lg": [
+                        "Public Sans"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "code-sm": [
+                        "Inter"
+                ]
+        }
+      }
+    }
+  }
+</script>
+<link href="../../assets/css/animations.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #f7f9fe;
+            color: #181c20;
+        }
+        .chat-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background-color: #d8dadf;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="flex h-full font-body-lg text-body-lg relative min-h-screen">
+<canvas id="bg-canvas"></canvas>
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col p-md docked w-64 border-r border-outline-variant flat no shadows bg-primary-container z-20">
+<!-- Header -->
+<a href="landing.html" class="flex items-center gap-md mb-xl mt-sm px-sm hover:opacity-90 transition-opacity">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline-md">
+                N
+            </div>
+<div>
+<h1 class="text-title-lg font-title-lg text-on-primary m-0 p-0 leading-none">Nirnay</h1>
+<p class="text-label-md font-label-md text-primary-fixed-dim m-0 p-0 mt-xs uppercase tracking-wider">Decision Audit AI</p>
+</div>
+</a>
+<!-- CTA Button -->
+<a href="upload.html" class="w-full bg-action-blue text-on-primary py-sm px-md rounded-lg font-label-md text-label-md flex items-center justify-center gap-sm mb-lg hover:bg-action-blue-hover transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Audit
+        </a>
+<!-- Main Navigation -->
+<div class="flex-1 flex flex-col gap-xs overflow-y-auto">
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary transition-colors rounded-lg font-body-md text-body-md" href="landing.html">
+<span class="material-symbols-outlined text-[20px]">home</span>
+                Overview
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary transition-colors rounded-lg font-body-md text-body-md" href="upload.html">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+                Upload Documents
+            </a>
+<a class="flex items-center gap-md bg-action-blue text-on-primary rounded-lg px-md py-sm hover:bg-action-blue-hover transition-colors font-body-md text-body-md" href="ask.html">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">quiz</span>
+                Ask a Question
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary transition-colors rounded-lg font-body-md text-body-md" href="verify.html">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+                Verify Hash
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary transition-colors rounded-lg font-body-md text-body-md" href="audit-log.html">
+<span class="material-symbols-outlined text-[20px]">history</span>
+                Audit Log
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg font-body-md text-body-md" href="pending-verification.html">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+                Pending
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg font-body-md text-body-md" href="history.html">
+<span class="material-symbols-outlined text-[20px]">manage_history</span>
+                Your History
+            </a>
+</div>
+
+<!-- Footer Navigation -->
+<div class="flex flex-col gap-xs mt-auto pt-lg border-t border-primary-fixed-variant border-opacity-20">
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary transition-colors rounded-lg font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+                Support
+            </a>
+</div>
+</nav>
+
+<!-- Main Canvas Area -->
+<main class="flex-1 flex flex-col pl-64 h-screen overflow-hidden">
+<!-- Top Bar -->
+<header class="h-16 border-b border-outline-variant bg-surface px-lg flex items-center justify-between shrink-0">
+<h2 class="font-headline-md text-headline-md text-primary">Policy Q&A Auditor</h2>
+<div class="flex items-center gap-md">
+<a href="login.html" class="text-on-surface-variant hover:text-primary font-label-md">Login</a>
+<a href="signup.html" class="bg-action-blue text-white px-md py-xs rounded-lg font-label-md hover:bg-action-blue-hover transition-colors">Sign Up</a>
+</div>
+</header>
+
+<!-- Chat / Content Area -->
+<div class="flex-1 p-lg overflow-y-auto chat-scroll space-y-lg">
+<!-- User Message -->
+<div class="max-w-4xl mx-auto bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-sm text-on-surface-variant font-label-md mb-xs">
+<span class="material-symbols-outlined text-[18px]">person</span>
+<span>Auditor Query</span>
+</div>
+<p class="font-body-lg text-primary font-medium">Does the 2024 Institutional Policy allow reimbursement for home office ergonomic equipment?</p>
+</div>
+
+<!-- AI Answer Response Card -->
+<div id="ai-answer-card" class="max-w-4xl mx-auto bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-md">
+<div class="flex items-center justify-between mb-sm">
+<div class="flex items-center gap-sm text-action-blue font-label-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span>NIRNAY DECISION AI</span>
+</div>
+<span class="text-[11px] bg-emerald-500/10 text-emerald-700 px-2 py-0.5 rounded font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> SHA-256 Hashed
+</span>
+</div>
+<div id="ai-answer-text" class="font-body-lg text-on-surface leading-relaxed">
+<p class="mb-md">
+Based on <strong>Institutional Policy 2024 (Section 4.2 - Ergonomic Reimbursements)</strong>, employees may claim up to $500 annually for approved home office equipment provided receipt proof is submitted within 30 days.
+</p>
+</div>
+<div class="mt-md pt-sm border-t border-outline-variant flex items-center justify-between text-[12px] text-on-surface-variant">
+<span>Cited Sources: Institutional Policy 2024.pdf (p. 14)</span>
+<span class="font-code-sm font-mono text-action-blue">Proof Hash: 0x8f4c...3b9e</span>
+</div>
+</div>
+</div>
+
+<!-- Input Area -->
+<div class="p-lg pt-0 bg-background border-t border-outline-variant z-10 shrink-0">
+<form id="ask-question-form" class="max-w-4xl mx-auto w-full relative">
+<div class="relative flex items-center bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden focus-within:border-action-blue focus-within:ring-1 focus-within:ring-action-blue transition-all shadow-sm">
+<button type="button" class="pl-md pr-sm text-outline hover:text-primary transition-colors flex items-center justify-center h-full">
+<span class="material-symbols-outlined text-[24px]">attach_file</span>
+</button>
+<input id="question-input" class="flex-1 bg-transparent border-none py-md px-sm font-body-lg text-body-lg text-on-surface placeholder:text-outline focus:ring-0 outline-none" placeholder="Ask a question about your policies..." type="text"/>
+<div class="pr-sm py-sm flex items-center h-full">
+<button type="submit" class="bg-action-blue hover:bg-action-blue-hover text-on-primary w-10 h-10 rounded-lg flex items-center justify-center transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-action-blue">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<p class="text-center font-code-sm text-code-sm text-on-surface-variant mt-sm">
+    AI-generated responses are anchored to policy documents with cryptographic proofs.
+</p>
+</form>
+</div>
+</main>
+<script src="../../assets/js/animations.js"></script>
+</body></html>

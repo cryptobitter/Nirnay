@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nirnay - Landing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="../../assets/css/animations.css" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c5c6ce",
+                        "primary": "#000a23",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00164d",
+                        "surface-container-highest": "#e0e2e7",
+                        "secondary-container": "#3f6ce8",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#fefbff",
+                        "primary-fixed-dim": "#b8c6ed",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "surface": "#f7f9fe",
+                        "primary-container": "#12213f",
+                        "on-surface-variant": "#45464e",
+                        "tertiary": "#140800",
+                        "tertiary-fixed": "#ffddba",
+                        "inverse-primary": "#b8c6ed",
+                        "surface-container-high": "#e6e8ed",
+                        "surface-container-low": "#f1f4f9",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#c1790a",
+                        "on-secondary-fixed-variant": "#003cac",
+                        "on-primary-fixed": "#0b1b38",
+                        "on-tertiary-fixed": "#2b1700",
+                        "outline": "#75777e",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#341c00",
+                        "on-surface": "#181c20",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#505e7f",
+                        "background": "#f7f9fe",
+                        "on-primary-fixed-variant": "#384666",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f6",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary-container": "#7b89ac",
+                        "surface-dim": "#d8dadf",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e2e7",
+                        "secondary": "#1c52ce",
+                        "surface-container": "#eceef3",
+                        "on-background": "#181c20",
+                        "surface-bright": "#f7f9fe",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3135"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans"],
+                        "body-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "code-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: repeat(12, 1fr);
+            }
+        }
+        .geometric-bg {
+            background-image: radial-gradient(#dbe1ff 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-lg antialiased relative min-h-screen">
+<div id="scroll-progress-bar"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 h-16 flex items-center px-margin-mobile md:px-margin-desktop transition-all duration-300">
+<div class="flex items-center justify-between w-full max-w-7xl mx-auto">
+<a href="landing.html" class="flex items-center gap-sm text-primary font-headline-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+<span>Nirnay</span>
+</a>
+<div class="hidden lg:flex gap-md items-center">
+<a class="text-secondary font-semibold font-label-md px-2 py-1 rounded" href="landing.html">Overview</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="ask.html">Ask AI</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="upload.html">Upload Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="verify.html">Verify Hash</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="audit-log.html">Audit Log</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="pending-verification.html">Pending</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="history.html">History</a>
+</div>
+<div class="flex items-center gap-sm">
+<a class="text-primary hover:text-secondary px-sm py-xs font-label-md transition-colors" href="login.html">Log In</a>
+<a class="bg-secondary text-on-secondary px-md py-sm rounded-lg font-label-md hover:bg-secondary/90 transition-all shadow-sm" href="signup.html">Get Started</a>
+</div>
+</div>
+</nav>
+
+<main>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 px-margin-mobile md:px-margin-desktop overflow-hidden geometric-bg">
+<div class="max-w-7xl mx-auto grid-layout items-center">
+<div class="col-span-4 md:col-span-6 flex flex-col gap-lg relative z-10 reveal-left">
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">
+                        Every policy decision, permanently provable.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant md:text-title-lg md:font-title-lg max-w-2xl">
+                        Ask your institution's policies a question. Get a cited answer instantly — and a tamper-proof, blockchain-anchored record of every decision made.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md mt-sm">
+<a href="ask.html" class="bg-[#2A5BD7] text-white px-xl py-md rounded-xl font-label-md hover:bg-[#1e44a5] transition-all shadow-md flex items-center justify-center gap-sm">
+                            Get Started
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a href="#how-it-works" class="border border-[#12213F] text-[#12213F] px-xl py-md rounded-xl font-label-md hover:bg-[#12213F]/5 transition-all flex items-center justify-center">
+                            See How It Works
+                        </a>
+</div>
+</div>
+<div class="col-span-4 md:col-span-6 relative mt-xl md:mt-0 h-[400px] flex justify-center items-center reveal-right">
+<div class="bg-cover bg-center w-full h-full rounded-2xl shadow-lg border border-outline-variant/50 relative z-10 overflow-hidden" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCF0tKOezevPCBgfmSqRpI8z-KFJEfqVgaXISesyZvt8fIM8Go6OHQ7Six6wfm7GitOxvBWm7hoBjhtetkwUbmQEJ0s6nKEeCxsJs49_B-V195j62iDtn3aL7UbDnG1XF-uhAjPJkC6pMbd4uM533wxxeLa8KaJ2y6IyYtNrGkWzai7EJhl5mMST2oqVWAi22Y339_hUznAb5EpLUW6fCJCjOy-ObOpH8ijxJmRpJNhSGL3LAJNQwcQ')">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-container/80 to-transparent mix-blend-multiply"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Social Proof Banner -->
+<section class="bg-primary-container text-white py-lg px-margin-mobile md:px-margin-desktop text-center border-y border-[#2a5bd7]/30 reveal-on-scroll">
+<div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-md">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<p class="font-title-lg text-title-lg text-secondary-fixed">
+                    "The same trust model as certificate verification — now applied to every decision your institution makes."
+                </p>
+</div>
+</section>
+
+<!-- How It Works -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="how-it-works">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xl reveal-on-scroll">
+<h2 class="font-headline-lg text-headline-lg text-primary">How Nirnay Works</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">A systematic approach to objective truth.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg relative">
+<a href="upload.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-100 card-hover-effect p-md rounded-xl">
+<div class="w-24 h-24 rounded-full bg-surface border border-outline-variant flex items-center justify-center mb-md group-hover:border-secondary group-hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-secondary transition-colors">upload_file</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-xs">1. Upload Policies</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Securely ingest institutional guidelines.</p>
+</a>
+<a href="ask.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-200 card-hover-effect p-md rounded-xl">
+<div class="w-24 h-24 rounded-full bg-surface border border-outline-variant flex items-center justify-center mb-md group-hover:border-secondary group-hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-secondary transition-colors">chat</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-xs">2. Query Policies</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Ask questions naturally without complex syntax.</p>
+</a>
+<a href="audit-log.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-300 card-hover-effect p-md rounded-xl">
+<div class="w-24 h-24 rounded-full bg-surface border border-outline-variant flex items-center justify-center mb-md group-hover:border-secondary group-hover:shadow-md transition-all">
+<span class="material-symbols-outlined text-4xl text-primary group-hover:text-secondary transition-colors">verified</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-xs">3. Get Cited Answers</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Receive confidence-scored responses linked to source.</p>
+</a>
+<a href="verify.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-400 card-hover-effect p-md rounded-xl">
+<div class="w-24 h-24 rounded-full bg-surface border border-[#2A5BD7] flex items-center justify-center mb-md bg-[#2A5BD7]/5 shadow-sm">
+<span class="material-symbols-outlined text-4xl text-[#2A5BD7]" style="font-variation-settings: 'FILL' 1;">link</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-primary mb-xs">4. Hashed & Anchored</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Every decision securely recorded on-chain.</p>
+</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="bg-primary-container text-white py-xl px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+<div class="flex flex-col gap-sm">
+<div class="flex items-center gap-sm font-headline-md text-headline-md text-white">
+<span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+<span>Nirnay</span>
+</div>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Decisions you can prove.</p>
+</div>
+<div class="flex gap-lg font-label-md">
+<a class="text-primary-fixed-dim hover:text-white transition-colors" href="landing.html">Overview</a>
+<a class="text-primary-fixed-dim hover:text-white transition-colors" href="ask.html">Ask AI</a>
+<a class="text-primary-fixed-dim hover:text-white transition-colors" href="verify.html">Verify Hash</a>
+<a class="text-primary-fixed-dim hover:text-white transition-colors" href="audit-log.html">Audit Log</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-lg pt-lg border-t border-white/10 text-center md:text-left">
+<p class="font-body-md text-body-md text-primary-fixed-dim/50">© 2026 Nirnay. All rights reserved.</p>
+</div>
+</footer>
+<script src="../../assets/js/animations.js"></script>
+</body></html>

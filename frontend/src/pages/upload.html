@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nirnay - Document Upload</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-high": "#e6e8ed",
+                "on-surface": "#181c20",
+                "on-tertiary": "#ffffff",
+                "surface-container": "#eceef3",
+                "surface-variant": "#e0e2e7",
+                "secondary-fixed-dim": "#b5c4ff",
+                "tertiary-container": "#341c00",
+                "on-error-container": "#93000a",
+                "surface-dim": "#d8dadf",
+                "surface-tint": "#505e7f",
+                "background": "#f7f9fe",
+                "tertiary-fixed": "#ffddba",
+                "surface-container-low": "#f1f4f9",
+                "outline-variant": "#c5c6ce",
+                "on-surface-variant": "#45464e",
+                "tertiary": "#140800",
+                "primary-fixed-dim": "#b8c6ed",
+                "primary-container": "#12213f",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed-variant": "#003cac",
+                "on-background": "#181c20",
+                "primary-fixed": "#d9e2ff",
+                "tertiary-fixed-dim": "#ffb866",
+                "on-tertiary-fixed-variant": "#673d00",
+                "on-secondary-container": "#fefbff",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#c1790a",
+                "surface-bright": "#f7f9fe",
+                "outline": "#75777e",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "primary": "#000a23",
+                "on-primary-fixed": "#0b1b38",
+                "secondary-fixed": "#dbe1ff",
+                "on-primary-fixed-variant": "#384666",
+                "secondary-container": "#3f6ce8",
+                "secondary": "#1c52ce",
+                "on-primary-container": "#7b89ac",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eff1f6",
+                "on-secondary-fixed": "#00164d",
+                "surface": "#f7f9fe",
+                "surface-container-highest": "#e0e2e7",
+                "inverse-primary": "#b8c6ed",
+                "on-tertiary-fixed": "#2b1700",
+                "inverse-surface": "#2d3135"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "xs": "4px",
+                "base": "4px",
+                "lg": "24px",
+                "margin-desktop": "48px",
+                "margin-mobile": "16px",
+                "md": "16px",
+                "sm": "8px",
+                "xl": "40px"
+        },
+        "fontFamily": {
+                "body-md": ["Inter"],
+                "display-lg": ["Public Sans"],
+                "headline-lg": ["Public Sans"],
+                "label-md": ["Inter"]
+        }
+      }
+    }
+  }
+</script>
+<link href="../../assets/css/animations.css" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen flex overflow-hidden relative">
+<canvas id="bg-canvas"></canvas>
+
+<!-- SideNavBar -->
+<nav class="bg-primary font-body-md text-body-md docked h-full w-64 left-0 top-0 border-r border-outline-variant flat no shadows fixed left-0 top-0 h-full flex flex-col p-md z-20">
+<a href="landing.html" class="flex items-center gap-md mb-xl hover:opacity-90 transition-opacity">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+</div>
+<div>
+<h1 class="text-title-lg font-title-lg text-on-primary m-0">Nirnay</h1>
+<p class="text-secondary-fixed text-code-sm m-0 opacity-80">Decision Audit AI</p>
+</div>
+</a>
+<a href="upload.html" class="bg-[#3f6ce8] text-white hover:bg-[#1c52ce] transition-colors rounded-lg py-sm px-md flex items-center justify-center gap-sm mb-lg font-label-md w-full shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Audit
+        </a>
+<div class="flex-1 overflow-y-auto space-y-sm">
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg" href="landing.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm transition-colors" href="upload.html">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="font-label-md">Upload Documents</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg" href="ask.html">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-md">Ask a Question</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg" href="verify.html">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-label-md">Verify Hash</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg" href="audit-log.html">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md">Audit Log</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg" href="pending-verification.html">
+<span class="material-symbols-outlined">pending_actions</span>
+<span class="font-label-md">Pending</span>
+</a>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm hover:bg-primary-container transition-colors rounded-lg" href="history.html">
+<span class="material-symbols-outlined">manage_history</span>
+<span class="font-label-md">Your History</span>
+</a>
+</div>
+</nav>
+
+<!-- Main Layout -->
+<div class="flex-1 flex flex-col ml-64 min-h-screen">
+<header class="bg-surface font-title-lg text-title-lg sticky top-0 border-b border-outline-variant flex justify-between items-center w-full px-lg py-md h-16 z-10">
+<div class="flex items-center gap-md">
+<h2 class="font-headline-md text-primary m-0">Institution Document Repository</h2>
+</div>
+</header>
+<main class="flex-1 p-gutter overflow-y-auto">
+<div class="max-w-6xl mx-auto space-y-xl">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary m-0">Document Upload</h3>
+<p class="text-on-surface-variant text-body-lg mt-xs">Securely upload policies, audits, and compliance documentation for AI analysis.</p>
+</div>
+
+<!-- Drag & Drop Zone -->
+<div id="upload-drop-zone" class="relative border-2 border-dashed border-outline-variant rounded-xl bg-surface-container-lowest hover:bg-surface-container-low hover:border-secondary transition-all duration-200 cursor-pointer flex flex-col items-center justify-center py-16 px-gutter text-center group">
+<input id="file-upload-input" type="file" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" accept=".pdf,.docx,.txt"/>
+<div class="w-16 h-16 rounded-xl bg-surface-container-high group-hover:bg-primary-fixed flex items-center justify-center mb-md transition-colors">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant group-hover:text-secondary transition-colors">upload_file</span>
+</div>
+<p class="font-title-lg text-title-lg text-primary mb-xs">Drag PDFs here or click to browse</p>
+<p class="text-on-surface-variant text-body-md max-w-md">Supported formats: PDF, DOCX, TXT. Maximum file size: 50MB per document.</p>
+<button type="button" class="mt-lg bg-primary-container text-on-primary hover:bg-primary transition-colors font-label-md py-sm px-lg rounded flex items-center gap-sm relative z-0">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+                        Browse Files
+                    </button>
+</div>
+
+<!-- Upload Progress Card (hidden by default) -->
+<div id="upload-status-card" class="hidden bg-surface-container-lowest p-md rounded-xl border border-outline-variant shadow-sm">
+    <div class="flex items-center justify-between mb-sm">
+        <div class="flex items-center gap-sm">
+            <span class="material-symbols-outlined text-secondary">description</span>
+            <span id="upload-filename" class="font-semibold text-primary">Document.pdf</span>
+        </div>
+        <span id="upload-status-badge" class="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-semibold">Uploading...</span>
+    </div>
+    <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+        <div id="upload-progress-bar" class="bg-secondary h-full transition-all duration-300" style="width: 0%;"></div>
+    </div>
+</div>
+
+<!-- Recent Uploads Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<div class="bg-primary-container px-lg py-md flex items-center justify-between border-b border-outline-variant">
+<h4 class="font-title-lg text-on-primary m-0">Recent Ingested Handbooks</h4>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container">
+<th class="py-md px-lg font-label-md text-on-surface-variant uppercase tracking-wider font-semibold">File Name</th>
+<th class="py-md px-lg font-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Upload Date</th>
+<th class="py-md px-lg font-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-md px-lg flex items-center gap-md">
+<span class="material-symbols-outlined text-error opacity-80">picture_as_pdf</span>
+<span class="font-body-md text-primary font-medium">Institutional Policy 2024.pdf</span>
+</td>
+<td class="py-md px-lg text-on-surface-variant text-body-md">Oct 24, 2023</td>
+<td class="py-md px-lg">
+<span class="inline-flex items-center px-2 py-1 rounded text-code-sm font-medium bg-emerald-500/10 text-emerald-700 border border-emerald-500/20">
+<span class="material-symbols-outlined text-[14px] mr-1">check_circle</span> Indexed & Anchored
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</div>
+<script src="../../assets/js/animations.js"></script>
+</body></html>

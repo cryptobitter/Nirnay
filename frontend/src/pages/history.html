@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nirnay - Your History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#ffffff",
+                    "surface-variant": "#e0e2e7",
+                    "outline-variant": "#dde2ee",
+                    "background": "#f4f6fb",
+                    "primary": "#12213f",
+                    "secondary": "#2a5bd7",
+                    "on-surface-variant": "#45464e"
+            }
+          }
+        }
+      }
+    </script>
+<link href="../../assets/css/animations.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #f4f6fb;
+        }
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface h-full flex antialiased relative">
+<canvas id="bg-canvas"></canvas>
+
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col p-md docked h-full w-64 left-0 top-0 border-r border-outline-variant bg-primary fixed z-20">
+<a href="landing.html" class="flex items-center gap-sm mb-lg px-xs hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-title-lg text-on-primary">gavel</span>
+<div>
+<h1 class="text-title-lg font-title-lg text-on-primary">Nirnay</h1>
+<p class="text-label-md font-label-md text-primary-fixed-dim">Decision Audit AI</p>
+</div>
+</a>
+<a href="upload.html" class="bg-secondary text-white w-full py-2 rounded flex items-center justify-center gap-xs font-label-md mb-lg hover:opacity-90 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Audit
+        </a>
+<ul class="flex flex-col gap-xs flex-1 overflow-y-auto">
+<li>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors" href="landing.html">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-md">Overview</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors" href="upload.html">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="font-body-md">Upload Documents</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors" href="ask.html">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-body-md">Ask a Question</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors" href="verify.html">
+<span class="material-symbols-outlined">verified</span>
+<span class="font-body-md">Verify Hash</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md text-on-primary-container hover:text-on-primary px-md py-sm rounded-lg hover:bg-primary-container transition-colors" href="audit-log.html">
+<span class="material-symbols-outlined">history</span>
+<span class="font-body-md">Audit Log</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-md bg-secondary text-white rounded-lg px-md py-sm shadow-sm" href="history.html">
+<span class="material-symbols-outlined fill">manage_history</span>
+<span class="font-body-md font-semibold">Your History</span>
+</a>
+</li>
+</ul>
+</nav>
+
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 md:ml-64 flex flex-col min-h-screen bg-background relative z-10">
+<header class="bg-surface border-b border-outline-variant px-margin-desktop py-lg sticky top-0 z-10 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md max-w-[1200px] mx-auto w-full">
+<div>
+<h2 class="font-headline-lg text-primary">Your Activity History</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Review past policy queries and audit records.</p>
+</div>
+</div>
+</header>
+<div class="p-lg max-w-[1200px] mx-auto w-full space-y-md">
+<article class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm reveal-on-scroll">
+<h3 class="font-body-lg font-semibold text-primary mb-xs">Home Office Ergonomic Reimbursement Policy Query</h3>
+<p class="text-on-surface-variant text-body-md">Verified claim status against Policy Document 4.2 with SHA-256 proof hash 0x8f4c2e...</p>
+<div class="mt-sm text-[12px] text-secondary font-mono">Timestamp: 2026-08-31 09:42:15 UTC</div>
+</article>
+</div>
+</main>
+<script src="../../assets/js/animations.js"></script>
+</body></html>

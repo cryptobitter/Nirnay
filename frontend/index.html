@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nirnay - Every policy decision, permanently provable.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts & Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+    <!-- Animation Stylesheet -->
+    <link href="assets/css/animations.css" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c5c6ce",
+                        "primary": "#000a23",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00164d",
+                        "surface-container-highest": "#e0e2e7",
+                        "secondary-container": "#3f6ce8",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-secondary-container": "#fefbff",
+                        "primary-fixed-dim": "#b8c6ed",
+                        "tertiary-fixed-dim": "#ffb866",
+                        "surface": "#f7f9fe",
+                        "primary-container": "#12213f",
+                        "on-surface-variant": "#45464e",
+                        "tertiary": "#140800",
+                        "tertiary-fixed": "#ffddba",
+                        "inverse-primary": "#b8c6ed",
+                        "surface-container-high": "#e6e8ed",
+                        "surface-container-low": "#f1f4f9",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#c1790a",
+                        "on-secondary-fixed-variant": "#003cac",
+                        "on-primary-fixed": "#0b1b38",
+                        "on-tertiary-fixed": "#2b1700",
+                        "outline": "#75777e",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#341c00",
+                        "on-surface": "#181c20",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#505e7f",
+                        "background": "#f7f9fe",
+                        "on-primary-fixed-variant": "#384666",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f6",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary-container": "#7b89ac",
+                        "surface-dim": "#d8dadf",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e2e7",
+                        "secondary": "#1c52ce",
+                        "surface-container": "#eceef3",
+                        "on-background": "#181c20",
+                        "surface-bright": "#f7f9fe",
+                        "secondary-fixed-dim": "#b5c4ff",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3135"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Public Sans"],
+                        "body-lg": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "headline-lg-mobile": ["Public Sans"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Public Sans"],
+                        "headline-lg": ["Public Sans"],
+                        "code-sm": ["Inter"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-lg antialiased relative min-h-screen">
+
+    <!-- Top Scroll Progress Bar -->
+    <div id="scroll-progress-bar"></div>
+
+    <!-- Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 h-16 flex items-center px-margin-mobile md:px-margin-desktop transition-all duration-300">
+        <div class="flex items-center justify-between w-full max-w-7xl mx-auto">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-sm text-primary font-headline-md hover:opacity-90 transition-opacity">
+                <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+                <span>Nirnay</span>
+            </a>
+            
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex gap-md items-center">
+                <a class="text-secondary font-semibold font-label-md transition-colors px-2 py-1 rounded" href="index.html">Overview</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="src/pages/ask.html">Ask AI</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="src/pages/upload.html">Upload Policy</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="src/pages/verify.html">Verify Hash</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="src/pages/audit-log.html">Audit Log</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="src/pages/pending-verification.html">Pending</a>
+                <a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md px-2 py-1 rounded" href="src/pages/history.html">History</a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-sm">
+                <a class="text-primary hover:text-secondary px-sm py-xs font-label-md transition-colors" href="src/pages/login.html">Log In</a>
+                <a class="bg-secondary text-on-secondary px-md py-sm rounded-lg font-label-md hover:bg-secondary/90 transition-all shadow-sm flex items-center gap-1" href="src/pages/signup.html">
+                    <span>Get Started</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-28 px-margin-mobile md:px-margin-desktop overflow-hidden geometric-bg">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-lg items-center">
+                <div class="lg:col-span-6 flex flex-col gap-lg relative z-10 reveal-left">
+                    <div class="inline-flex items-center gap-2 bg-secondary/10 border border-secondary/20 text-secondary px-md py-xs rounded-full font-label-md w-fit">
+                        <span class="w-2 h-2 rounded-full bg-secondary status-pulse-green"></span>
+                        Blockchain-Anchored Legal Tech Platform
+                    </div>
+                    <h1 class="font-display-lg text-display-lg text-primary leading-tight">
+                        Every policy decision, permanently provable.
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant md:text-title-lg md:font-title-lg max-w-2xl">
+                        Ask your institution's policies a question. Get a cited answer instantly — and a tamper-proof, cryptographic record of every decision made.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-md mt-sm">
+                        <a href="src/pages/ask.html" class="bg-[#2A5BD7] text-white px-xl py-md rounded-xl font-label-md hover:bg-[#1e44a5] transition-all shadow-md flex items-center justify-center gap-sm">
+                            Query Policy AI
+                            <span class="material-symbols-outlined text-[18px]">chat</span>
+                        </a>
+                        <a href="#demo-verification" class="border border-[#12213F] text-[#12213F] px-xl py-md rounded-xl font-label-md hover:bg-[#12213F]/5 transition-all flex items-center justify-center gap-2">
+                            <span>Try Live Hash Verifier</span>
+                            <span class="material-symbols-outlined text-[18px]">terminal</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative mt-xl lg:mt-0 reveal-right">
+                    <!-- Interactive Visual Display Card -->
+                    <div class="bg-surface-container-lowest p-lg rounded-2xl shadow-xl border border-outline-variant/50 relative z-10 animate-float card-hover-effect">
+                        <div class="flex items-center justify-between border-b border-outline-variant/30 pb-sm mb-md">
+                            <div class="flex items-center gap-sm">
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 status-pulse-green"></span>
+                                <span class="font-label-md text-primary font-semibold">Live Audit Ledger Node</span>
+                            </div>
+                            <span class="font-code-sm text-[11px] text-on-surface-variant bg-surface px-2 py-1 rounded border border-outline-variant/30">Block #948,201</span>
+                        </div>
+
+                        <div class="space-y-sm font-body-md">
+                            <div class="bg-surface p-sm rounded-lg border border-outline-variant/30 flex justify-between items-center">
+                                <div>
+                                    <div class="text-[12px] text-on-surface-variant">Query Subject</div>
+                                    <div class="font-semibold text-primary">Research Grant Compliance (Policy 4.2)</div>
+                                </div>
+                                <span class="bg-emerald-500/10 text-emerald-700 px-2 py-0.5 rounded text-[11px] font-semibold">VERIFIED</span>
+                            </div>
+
+                            <div class="bg-surface p-sm rounded-lg border border-outline-variant/30">
+                                <div class="text-[12px] text-on-surface-variant mb-1">SHA-256 Merkle Proof</div>
+                                <div class="font-code-sm text-[12px] text-secondary font-mono break-all">
+                                    0x8f4c2e91b5a7438992c103e56f4a8b79d20c3b9e
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-[12px] text-on-surface-variant pt-xs">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">schedule</span> Timestamp: 14:32:09 UTC</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-emerald-600">security</span> Immutable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Banner -->
+        <section class="bg-primary-container text-white py-lg px-margin-mobile md:px-margin-desktop text-center border-y border-[#2a5bd7]/30 reveal-on-scroll">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-md">
+                <span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                <p class="font-title-lg text-title-lg text-secondary-fixed">
+                    "The same trust model as certificate verification — now applied to every decision your institution makes."
+                </p>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="how-it-works">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-xl reveal-on-scroll">
+                    <h2 class="font-headline-lg text-headline-lg text-primary">How Nirnay Works</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">A systematic approach to objective truth.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-lg relative">
+                    <!-- Step 1 -->
+                    <a href="src/pages/upload.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-100 card-hover-effect p-md rounded-xl">
+                        <div class="w-24 h-24 rounded-full bg-surface border border-outline-variant flex items-center justify-center mb-md group-hover:border-secondary group-hover:shadow-md transition-all">
+                            <span class="material-symbols-outlined text-4xl text-primary group-hover:text-secondary transition-colors">upload_file</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary mb-xs">1. Upload Policies</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Securely ingest institutional guidelines & PDF documents.</p>
+                    </a>
+
+                    <!-- Step 2 -->
+                    <a href="src/pages/ask.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-200 card-hover-effect p-md rounded-xl">
+                        <div class="w-24 h-24 rounded-full bg-surface border border-outline-variant flex items-center justify-center mb-md group-hover:border-secondary group-hover:shadow-md transition-all">
+                            <span class="material-symbols-outlined text-4xl text-primary group-hover:text-secondary transition-colors">chat</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary mb-xs">2. Query in Plain English</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Ask questions naturally without complex syntax.</p>
+                    </a>
+
+                    <!-- Step 3 -->
+                    <a href="src/pages/audit-log.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-300 card-hover-effect p-md rounded-xl">
+                        <div class="w-24 h-24 rounded-full bg-surface border border-outline-variant flex items-center justify-center mb-md group-hover:border-secondary group-hover:shadow-md transition-all">
+                            <span class="material-symbols-outlined text-4xl text-primary group-hover:text-secondary transition-colors">verified</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary mb-xs">3. Get Cited Answers</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Receive confidence-scored responses linked to source text.</p>
+                    </a>
+
+                    <!-- Step 4 -->
+                    <a href="src/pages/verify.html" class="flex flex-col items-center text-center relative z-10 group reveal-scale delay-400 card-hover-effect p-md rounded-xl">
+                        <div class="w-24 h-24 rounded-full bg-surface border border-[#2A5BD7] flex items-center justify-center mb-md bg-[#2A5BD7]/5 shadow-sm">
+                            <span class="material-symbols-outlined text-4xl text-[#2A5BD7]" style="font-variation-settings: 'FILL' 1;">link</span>
+                        </div>
+                        <h3 class="font-title-lg text-title-lg text-primary mb-xs">4. Cryptographic Proof</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Every decision permanently anchored on-chain.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Interactive Verification Demo Section -->
+        <section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface" id="demo-verification">
+            <div class="max-w-4xl mx-auto bg-surface-container-lowest p-xl rounded-2xl border border-outline-variant/50 shadow-md reveal-on-scroll">
+                <div class="text-center mb-lg">
+                    <span class="text-secondary font-label-md uppercase tracking-wider">Interactive Tool</span>
+                    <h2 class="font-headline-lg text-primary mt-xs">Verify Any Decision Hash</h2>
+                    <p class="text-on-surface-variant text-body-md">Test Nirnay's public verification engine with a decision hash below.</p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-md">
+                    <input id="decision-hash-input" type="text" value="0x8f4c2e91b5a7438992c103e56f4a8b79d20c3b9e" class="flex-1 bg-surface border border-outline-variant rounded-xl px-md py-sm font-mono text-sm focus:outline-none focus:border-secondary transition-colors" placeholder="Enter decision SHA-256 hash..."/>
+                    <button id="verify-hash-btn" class="bg-secondary text-white px-lg py-sm rounded-xl font-label-md hover:bg-secondary/90 transition-all flex items-center justify-center gap-sm shadow-sm">
+                        <span>Verify Hash</span>
+                        <span class="material-symbols-outlined text-[18px]">verified</span>
+                    </button>
+                </div>
+
+                <!-- Hidden verification result card -->
+                <div id="verification-result" class="hidden mt-lg p-md bg-emerald-500/5 border border-emerald-500/30 rounded-xl">
+                    <div class="flex items-center gap-sm text-emerald-700 font-semibold mb-xs">
+                        <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                        <span>Hash Authenticated & Anchored on Public Ledger</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-md text-[13px] text-on-surface-variant pt-2 border-t border-emerald-500/20">
+                        <div><strong class="text-primary">Policy Document:</strong> Academic Policy v4.2</div>
+                        <div><strong class="text-primary">Auditor Signoff:</strong> Compliance Node #14</div>
+                        <div><strong class="text-primary">Status:</strong> 100% Immutable</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Screen Grid -->
+        <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-xl reveal-on-scroll">
+                    <h2 class="font-headline-lg text-primary">Explore All Platform Interfaces</h2>
+                    <p class="text-on-surface-variant text-body-lg mt-xs">Complete policy decision auditing suite.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                    <!-- Ask Question Card -->
+                    <a href="src/pages/ask.html" class="bg-surface p-lg rounded-xl border border-outline-variant/50 card-hover-effect flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-secondary group-hover:text-white">forum</span>
+                            </div>
+                            <h3 class="font-title-lg text-primary mb-xs">Ask a Question</h3>
+                            <p class="font-body-md text-on-surface-variant">Query institutional guidelines using AI and receive cited policy evidence.</p>
+                        </div>
+                        <div class="mt-md text-secondary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            <span>Open Query Workspace</span>
+                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </div>
+                    </a>
+
+                    <!-- Upload Policy Card -->
+                    <a href="src/pages/upload.html" class="bg-surface p-lg rounded-xl border border-outline-variant/50 card-hover-effect flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-secondary group-hover:text-white">cloud_upload</span>
+                            </div>
+                            <h3 class="font-title-lg text-primary mb-xs">Document Upload</h3>
+                            <p class="font-body-md text-on-surface-variant">Upload PDF/Doc policy handbooks for ingestion and merkle tree hashing.</p>
+                        </div>
+                        <div class="mt-md text-secondary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            <span>Upload Handbook</span>
+                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </div>
+                    </a>
+
+                    <!-- Audit Log Card -->
+                    <a href="src/pages/audit-log.html" class="bg-surface p-lg rounded-xl border border-outline-variant/50 card-hover-effect flex flex-col justify-between group">
+                        <div>
+                            <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors">
+                                <span class="material-symbols-outlined text-secondary group-hover:text-white">receipt_long</span>
+                            </div>
+                            <h3 class="font-title-lg text-primary mb-xs">Audit Log</h3>
+                            <p class="font-body-md text-on-surface-variant">Inspect complete policy decision logs, flags, citations, and block hashes.</p>
+                        </div>
+                        <div class="mt-md text-secondary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            <span>View Audit Log</span>
+                            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-container text-white py-xl px-margin-mobile md:px-margin-desktop border-t border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+            <div class="flex flex-col gap-sm">
+                <div class="flex items-center gap-sm font-headline-md text-headline-md text-white">
+                    <span class="material-symbols-outlined text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+                    <span>Nirnay</span>
+                </div>
+                <p class="font-body-md text-body-md text-primary-fixed-dim">Every policy decision, permanently provable.</p>
+            </div>
+            <div class="flex flex-wrap gap-lg font-label-md">
+                <a class="text-primary-fixed-dim hover:text-white transition-colors" href="index.html">Home</a>
+                <a class="text-primary-fixed-dim hover:text-white transition-colors" href="src/pages/ask.html">Ask AI</a>
+                <a class="text-primary-fixed-dim hover:text-white transition-colors" href="src/pages/verify.html">Verify Hash</a>
+                <a class="text-primary-fixed-dim hover:text-white transition-colors" href="src/pages/audit-log.html">Audit Logs</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-lg pt-lg border-t border-white/10 text-center md:text-left">
+            <p class="font-body-md text-body-md text-primary-fixed-dim/50">© 2026 Nirnay Decision Audit AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script Engine -->
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

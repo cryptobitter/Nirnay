@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Signup - Nirnay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#000a23",
+                      "primary-container": "#12213f",
+                      "secondary": "#1c52ce",
+                      "background": "#f7f9fe",
+                      "surface": "#f7f9fe",
+                      "on-surface": "#181c20",
+                      "on-surface-variant": "#45464e",
+                      "outline-variant": "#c5c6ce"
+              }
+            }
+          }
+        }
+      </script>
+<link href="../../assets/css/animations.css" rel="stylesheet"/>
+<style>
+        .custom-input {
+            @apply w-full border border-outline-variant bg-surface-container-lowest text-on-surface rounded-xl px-4 py-3 focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition-colors duration-200 font-body-md;
+        }
+        .custom-label {
+            @apply block font-label-md text-on-surface-variant mb-xs;
+        }
+      </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col antialiased text-on-surface relative">
+<canvas id="bg-canvas"></canvas>
+
+<main class="flex-grow flex items-center justify-center p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_4px_20px_rgba(18,33,63,0.08)] w-full max-w-md z-10 relative overflow-hidden flex flex-col reveal-scale">
+<!-- Header -->
+<div class="px-md py-lg md:px-lg border-b border-outline-variant flex flex-col items-center text-center">
+<a href="landing.html" class="font-headline-lg font-bold text-primary mb-xs block hover:opacity-90 transition-opacity">Nirnay</a>
+<h1 class="font-title-lg text-on-surface">Institutional Registration</h1>
+<p class="font-body-md text-on-surface-variant mt-xs max-w-[280px]">Establish your secure organizational identity to begin auditing.</p>
+</div>
+
+<!-- Form -->
+<form action="pending-verification.html" class="p-md md:p-lg flex flex-col gap-md">
+<div class="bg-surface-container-low border border-surface-dim rounded-lg p-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-on-primary-container text-[20px] shrink-0 mt-[2px]" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="font-body-md text-on-surface-variant">
+    Institution accounts are reviewed and assigned a trust tier before document upload is enabled.
+</p>
+</div>
+
+<div>
+<label class="custom-label" for="fullName">Full Name</label>
+<input class="custom-input" id="fullName" name="fullName" placeholder="e.g., Jane Doe" required="" type="text"/>
+</div>
+
+<div>
+<label class="custom-label" for="orgName">Institution / Organization Name</label>
+<input class="custom-input" id="orgName" name="orgName" placeholder="e.g., Global Compliance Corp" required="" type="text"/>
+</div>
+
+<div>
+<label class="custom-label" for="workEmail">Work Email</label>
+<input class="custom-input" id="workEmail" name="workEmail" placeholder="jane.doe@institution.com" required="" type="email"/>
+</div>
+
+<div>
+<label class="custom-label" for="password">Password</label>
+<input class="custom-input" id="password" name="password" required="" type="password"/>
+</div>
+
+<button class="mt-sm w-full bg-[#2A5BD7] hover:bg-[#1c409c] text-white font-label-md py-3 px-6 rounded-lg transition-colors shadow-sm flex justify-center items-center gap-sm" type="submit">
+    Create Account
+    <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+</form>
+
+<div class="bg-surface-container-low px-md py-sm border-t border-outline-variant text-center">
+<p class="font-body-md text-on-surface-variant">
+    Already have an account? <a class="text-secondary font-medium hover:underline" href="login.html">Log in here</a>
+</p>
+</div>
+</div>
+</main>
+
+<footer class="bg-surface border-t border-outline-variant py-md text-center">
+<p class="font-body-md text-on-surface-variant">
+    © 2026 Nirnay. Institutional Decision Auditing Systems.
+</p>
+</footer>
+<script src="../../assets/js/animations.js"></script>
+</body></html>
