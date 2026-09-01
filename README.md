@@ -72,7 +72,7 @@ Institutions — colleges, startup compliance teams, audit functions — make po
 
 ## 🔄 System Pipeline
 
-```
+```mermaid
 flowchart TD
     A[📄 Document Upload] --> B[✂️ Chunking - LlamaIndex]
     B --> C[🔡 Embedding - OpenAI]
@@ -81,17 +81,27 @@ flowchart TD
     D --> F
     F --> G[🤖 Claude - cited answer + confidence]
     G --> H[⚖️ Policy Engine - approve / flag / escalate]
-    H --> I[🗄️ Save to Postgres]
-    I --> J[#️⃣ Deterministic SHA-256 Hash]
-    J --> K[🔗 Hash written to Solidity contract]
-    K --> L[🌍 Publicly verifiable by record ID, no login]
+    H --> I[🗄️ Save Assessment to Postgres]
+    I --> J[#️⃣ Deterministic SHA-256 Hash, includes cited sources]
+    J --> K[🔗 Hash submitted to Solidity contract - Polygon Amoy]
+    K --> L[📌 chain_tx_hash saved back to record]
+    I --> M[📜 Personal History, scoped to user]
+    I --> N[🗂️ Institutional Audit Log, admin-only]
+    O[🌍 Public Verification Request, no login] --> P[♻️ Record re-hashed from current DB state]
+    P --> Q{Matches stored hash?}
+    Q -->|No| R[❌ Tampering Detected]
+    Q -->|Yes| S{Exists on-chain?}
+    S -->|No| T[⚠️ Unanchored Record]
+    S -->|Yes| U[✅ Authentic - Verified on-chain]
+    V[⏳ Institution Status: pending/verified] --> B
+    V --> F
 ```
 
 ## 🔐 Trust & Verification Model
 
 The tamper-evidence claim only means something if it's checkable independently — so verification is built as a standalone, public, zero-trust flow.
 
-```
+```mermaid
 flowchart LR
     A[Assessment Created] --> B[Hash computed from full record incl. sources]
     B --> C[Hash saved to Postgres]
